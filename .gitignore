@@ -1,0 +1,67 @@
+# .gitignore for taller-sonar-qube
+# Ignore node modules (both root and any subfolders)
+**/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment files (do NOT commit secrets)
+.env
+.env.*.local
+
+# Build output
+/dist
+/build
+/public/build
+/frontend/dist/
+/frontend/build/
+/backend/dist/
+
+# Coverage
+coverage/
+.nyc_output/
+coverage-*.json
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Sonar
+.sonar/
+
+# Misc caches
+.cache/
+.parcel-cache/
+.next/
+
+# Database files
+*.sqlite
+*.sqlite3
+
+# Optional: temporary files
+*.tmp
+*.temp
+
+# Ignore local frontend/server dev artifacts
+*.local
+
+# End of file
