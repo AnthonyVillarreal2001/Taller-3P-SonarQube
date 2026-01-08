@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:14
+    container_name: parking-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: parking_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # SonarQube (opcional, descomenta si lo necesitas)
+  # sonarqube:
+  #   image: sonarqube:latest
+  #   container_name: sonarqube
+  #   ports:
+  #     - "9000:9000"
+  #   environment:
+  #     SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: true
+  #   volumes:
+  #     - sonarqube_data:/opt/sonarqube/data
+  #     - sonarqube_extensions:/opt/sonarqube/extensions
+  #     - sonarqube_logs:/opt/sonarqube/logs
+
+volumes:
+  postgres_data:
+  # sonarqube_data:
+  # sonarqube_extensions:
+  # sonarqube_logs:
