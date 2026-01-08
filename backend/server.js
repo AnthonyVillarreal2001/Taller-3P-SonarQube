@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const zonesRoutes = require('./routes/zones');
 const spacesRoutes = require('./routes/spaces');
 
 const app = express();
-const port = 3000;
+// Disable X-Powered-By header to hide Express.js version information
+app.disable("x-powered-by");
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +28,11 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke! ' + err.message);
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// Only start server if not in test mode
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+}
+
+module.exports = app;

@@ -4,13 +4,22 @@
   "description": "Vulnerable REST API for parking zones and spaces",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest --forceExit",
+    "test:coverage": "jest --coverage --forceExit",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "dotenv": "^17.2.3",
     "express": "^4.17.1",
     "pg": "^8.16.3"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2"
+  }
 }
