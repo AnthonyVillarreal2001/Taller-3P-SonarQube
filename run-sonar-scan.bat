@@ -18,7 +18,7 @@ echo.
 REM IMPORTANTE: Reemplaza TU_TOKEN_AQUI con tu token de SonarQube
 docker run --rm ^
   -e SONAR_HOST_URL="http://host.docker.internal:9000" ^
-  -e SONAR_TOKEN="sqp_8b12fe966f32cf6060f20dff10d2f553ef021486" ^
+  -e SONAR_TOKEN="sqp_811c3b09712c9742ff9bbabd6516ed146d0db80c" ^
   -v "%CD%:/usr/src" ^
   sonarsource/sonar-scanner-cli
 
